@@ -1,0 +1,60 @@
+{% extends "donar/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+        {% if msg: %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ msg }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <div class="card">
+            <div class="card-header card-header-primary center">
+                <h4 class="card-title "><b>Feedback</b></h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" accept="{{ url_for('donar_module.feedback') }}">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Feedback</label>
+                        <textarea name="description" rows="5" type="text" class="form-control" id="description"
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="star" class="control-label">Rate This</label>
+<input id="star" name="star" value="0" type="text" class="rating" data-theme="krajee-fas" data-min=0 data-max=5 data-step=1 data-size="lg"
+               required title="">
+<!--                        <label for="star">Rating</label>-->
+<!--                        <select name="star" id="star" class="form-control" required>-->
+<!--                            <option>1</option>-->
+<!--                            <option>2</option>-->
+<!--                            <option>3</option>-->
+<!--                            <option>4</option>-->
+<!--                            <option>5</option>-->
+<!--                        </select>-->
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        $(document).ready(function () {
+            $('#star').rating({
+                min: 0,
+                max: 5,
+                step: 1,
+                size: 'lg',
+                showClear: false
+            });
+
+
+        });
+    </script>
+{% endblock %}

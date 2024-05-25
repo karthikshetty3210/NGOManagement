@@ -1,0 +1,35 @@
+{% extends "donar/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+
+        {% if msg: %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ msg }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <div class="card">
+            <div class="card-header card-header-primary center">
+                <h4 class="card-title "><b>Payment Gateway</b></h4>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('donar_module.success') }}" method="POST">
+                    <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_gZxcQbxIJBtsb1"
+                        data-order_id="{{ res['id'] }}" data-name="NGO Management"
+                        data-description="Thanks for your donation"
+                        data-image="https://lexassisto.com/wp-content/uploads/2020/01/ngo-logo-png-3.png"
+                        data-prefill.name="{{ profile['name']}}" data-prefill.phoneno="{{ profile['phoneno']}}"
+                        data-prefill.email="{{ profile['email']}}" data-theme.color="#A13AB6"></script>
+                    <input type="hidden" name="amount" value="{{ res['amount'] }}">
+                    <input type="hidden" name="note" value="{{ res['notes']['note'] }}">
+                    <button class="btn btn-sm btn-success">Donate Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

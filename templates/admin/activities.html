@@ -1,0 +1,79 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+
+
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title "><b>All Activities</b></h4>
+            </div>
+            <div class="card-body">
+                {% if activities: %}
+                <div class="table-responsive">
+                    <table id="myTable" class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>Approve</th>
+                            <th>
+                                Delete
+                            </th>
+                        </thead>
+                        <tbody>
+                            {% for v in activities: %}
+                            <tr>
+                                <td class="text-primary">
+                                    #{{ v['id'] }}
+                                </td>
+                                <td>
+                                    {{ v['name'] }}
+                                </td>
+                                <td>
+                                    {{ v['description'] }}
+
+                                </td>
+                                <td>
+                                    {{ v['date'] }}
+                                </td>
+                                <td>
+                                    {% if not v['isapproved']: %}
+                                    <a href="{{ url_for('admin_module.home') }}update-activity/{{ v['id'] }}"
+                                        class="btn btn-success btn-sm">Approve</a>
+                                    {% else: %}
+                                    <span class="badge badge-success">Approved</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('admin_module.home') }}delete-activity/{{ v['id'] }}"
+                                        class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else: %}
+                    <h3>No Activities Found :)</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

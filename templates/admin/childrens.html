@@ -1,0 +1,80 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+
+        <!--- Activities -->
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title "><b>All Childrens</b></h4>
+            </div>
+            <div class="card-body">
+                {% if childrens: %}
+                <div class="table-responsive">
+                    <table id="volunteerTable" class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Age
+                            </th>
+                            <th>
+                                Gender
+                            </th>
+                            <th>Address</th>
+                            <th>Adopted By</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </thead>
+                        <tbody>
+                            {% for v in childrens: %}
+                            <tr>
+                                <td class="text-primary">
+                                    #{{ v['id'] }}
+                                </td>
+                                <td>
+                                    {{ v['name'] }}
+                                </td>
+                                <td>
+                                    {{ v['age'] }}
+
+                                </td>
+                                <td>
+                                    {{ v['gender'] }}
+                                </td>
+                                <td>
+                                    {{ v['address'] }}
+                                </td>
+                                <td>
+                                    {{ v['adoptedby'] }}
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('admin_module.home') }}update-children/{{ v['id'] }}"
+                                        class="btn btn-warning">Update</a>
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('admin_module.home') }}delete-children/{{ v['id'] }}"
+                                        class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else: %}
+                <h3>No Childrens Found :(</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#volunteerTable').DataTable();
+    });
+</script>
+{% endblock %}

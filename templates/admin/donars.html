@@ -1,0 +1,67 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+
+        <!--- Activities -->
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title "><b>All Donons</b></h4>
+            </div>
+            <div class="card-body">
+                {% if donars: %}
+                <div class="table-responsive">
+                    <table id="volunteerTable" class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Phone Number
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>Delete</th>
+                        </thead>
+                        <tbody>
+                            {% for v in donars: %}
+                            <tr>
+                                <td class="text-primary">
+                                    #{{ v['id'] }}
+                                </td>
+                                <td>
+                                    {{ v['name'] }}
+                                </td>
+                                <td>
+                                    {{ v['phoneno'] }}
+
+                                </td>
+                                <td>
+                                    {{ v['email'] }}
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('admin_module.home') }}delete-donar/{{ v['id'] }}"
+                                        class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else: %}
+                <h3>No Donors Found :(</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#volunteerTable').DataTable();
+    });
+</script>
+{% endblock %}

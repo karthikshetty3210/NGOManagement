@@ -1,0 +1,58 @@
+{% extends "donar/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+        {% if activities: %}
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title "><b>All Activities</b></h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="myTable" class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                        </thead>
+                        <tbody>
+                            {% for activity in activities: %}
+                            <tr>
+                                <td class="text-primary">
+                                    #{{ activity['id'] }}
+                                </td>
+                                <td>
+                                    {{ activity['name'] }}
+                                </td>
+                                <td>
+                                    {{ activity['description'] }}
+
+                                </td>
+                                <td>
+                                    {{ activity['date'] }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}

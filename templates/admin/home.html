@@ -1,0 +1,150 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">child_care</i>
+                        </div>
+                        <p class="card-category">HAPPY CHILDRENS</p>
+                        <h3 class="card-title">{{ childrens|length }}
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <a href="{{ url_for('admin_module.childrens') }}" class="btn btn-warning btn-small">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">volunteer_activism</i>
+                        </div>
+                        <p class="card-category">Total Volunteers</p>
+                        <h3 class="card-title">{{ volunteers|length }}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <a href="{{ url_for('admin_module.volunteers') }}"
+                                class="btn btn-success btn-small">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">volunteer_activism</i>
+                        </div>
+                        <p class="card-category">Total Donors</p>
+                        <h3 class="card-title">{{ donars|length }}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <a href="{{ url_for('admin_module.donars') }}" class="btn btn-danger btn-small">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">paid</i>
+                        </div>
+                        <p class="card-category">FUND RAISED</p>
+                        <h3 class="card-title">{{ totalDonation }}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <a href="{{ url_for('admin_module.donations') }}" class="btn btn-primary btn-small">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">event</i>
+                        </div>
+                        <p class="card-category">Total Activities / Event</p>
+                        <h3 class="card-title">{{ activities|length }}
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <a href="{{ url_for('admin_module.activities') }}"
+                                class="btn btn-success btn-small">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                        <div class="card-header card-header-primary card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">volunteer_activism</i>
+                            </div>
+                            <p class="card-category">Total Feedback</p>
+                            <h3 class="card-title">{{ feedbacks|length }}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <a href="{{ url_for('admin_module.viewfeedback') }}" class="btn btn-primary btn-small">View</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <!-- <div class="card card-stats">
+                        <div class="card-header card-header-danger card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">volunteer_activism</i>
+                            </div>
+                            <p class="card-category">Total Donars</p>
+                            <h3 class="card-title">{{ donars|length }}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <a href="{{ url_for('admin_module.activities') }}" class="btn btn-danger btn-small">View</a>
+                            </div>
+                        </div>
+                    </div> -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <!-- <div class="card card-stats">
+                        <div class="card-header card-header-primary card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">paid</i>
+                            </div>
+                            <p class="card-category">Total Donations</p>
+                            <h3 class="card-title">{{ totalDonation }}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <a href="{{ url_for('admin_module.donations') }}" class="btn btn-primary btn-small">View</a>
+                            </div>
+                        </div>
+                    </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#activitiesTable').DataTable();
+    });
+</script>
+{% endblock %}

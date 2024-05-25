@@ -1,0 +1,74 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+
+
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title "><b>All Feedback</b></h4>
+            </div>
+            <div class="card-body">
+                {% if feedbacks: %}
+                <div class="table-responsive">
+                    <table id="myTable" class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Feedback
+                            </th>
+                            <th>
+                                Rating
+                            </th>
+                        </thead>
+                        <tbody>
+                            {% for v in feedbacks: %}
+                            <tr>
+                                <td class="text-primary">
+                                    #{{ v['id'] }}
+                                </td>
+                                <td>
+                                    {{ v['name'] }}
+                                </td>
+                                <td>
+                                    {{ v['description'] }}
+
+                                </td>
+                                <td>
+                                   <input id="star" value="{{ v['star'] }}" type="text" class="rating" data-theme="krajee-fas" data-min=0 data-max=5 data-step=0.5 data-size="xs"
+               title="">
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else: %}
+                    <h3>No Feedback Found :)</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+        $(document).ready(function () {
+        $('#myTable').DataTable();
+            $('#star').rating({
+                min: 0,
+                max: 5,
+                step: 1,
+                size: 'sm',
+                showClear: false
+            });
+
+
+        });
+    </script>
+{% endblock %}

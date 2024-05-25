@@ -1,0 +1,50 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+
+        <!--- Activities -->
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title "><b>All Donations</b></h4>
+            </div>
+            <div class="card-body">
+                {% if donations: %}
+                <div class="table-responsive">
+                    <table id="volunteerTable" class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>Notes</th>
+                        </thead>
+                        <tbody>
+                            {% for v in donations: %}
+                            <tr>
+                                <td class="text-primary">
+                                    #{{ v['id'] }}
+                                </td>
+                                <td>
+                                    {{ v['amount'] }}
+                                </td>
+                                <td>
+                                    {{ v['note'] }}
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else: %}
+                <h3>No Donations Found :(</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+        {% if msg: %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ msg }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <div class="card">
+            <div class="card-header card-header-primary center">
+                <h4 class="card-title "><b>Add Child</b></h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" accept="{{ url_for('admin_module.addchild') }}">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input name="age" type="text" class="form-control" id="age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select name="gender" class="form-control" id="gender" required>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea name="address" rows="3" type="text" class="form-control" id="address"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Child</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // CKEDITOR.replace('description');
+</script>
+{% endblock %}

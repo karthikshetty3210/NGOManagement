@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>NGO Management</title>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='home/images/fav.png') }}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='home/images/fav.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/plugins/slider/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/plugins/slider/css/owl.theme.default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='home/css/style.css') }}" />
+</head>
+
+<body>
+
+    <header class="continer-fluid ">
+        <div class="header-top">
+            <div class="container">
+                <div class="row col-det">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <ul class="ulleft">
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                contact@ngomanagement.com
+                                <span>|</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-volume"></i>
+                                +91 9902344835
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <div class="col-lg-3 col-md-6 folouws">
+
+                        <ul class="ulright">
+                            <li> <small>Folow Us </small>:</li>
+                            <li>
+                                <i class="fab fa-facebook-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-twitter-square"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-instagram"></i>
+                            </li>
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                            </li>
+                        </ul>
+                    </div> -->
+                    <div class="col-lg-6 d-none d-md-block col-md-6 btn-bhed">
+                        <a href="{{ url_for('volunteer_module.register') }}" target="_"
+                            class="btn btn-sm btn-success">Become Volunteer</a>
+                        <a href="{{ url_for('donar_module.register') }}" target="_"
+                            class="btn btn-sm btn-danger">Donate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menu-jk" class="header-bottom">
+            <div class="container">
+                <div class="row nav-row">
+                    <div class="col-lg-3 col-md-12 logo">
+                        <a href="index.html">
+                            <img src="{{ url_for('static',filename='home/images/logo.jpg') }}" alt="">
+                            <a data-toggle="collapse" data-target="#menu" href="#menu"><i
+                                    class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                        </a>
+
+                    </div>
+                    <div id="menu" class="col-lg-9 col-md-12 d-none d-lg-block nav-col">
+
+                        <ul class="navbad">
+
+
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% block maincontent %}
+    {% endblock %}
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h2>About Us</h2>
+                    <p>
+                        Ngo Management is a leading provider of information technology, consulting, and business process
+                        services. Our dedicated employees offer strategic insights, technological expertise and industry
+                        experience.
+                    </p>
+                    <p>We focus on technologies that promise to reduce costs, streamline processes and speed
+                        time-to-market, Backed by our strong quality processes and rich experience managing global...
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-12 map-img">
+                    <h2>Contact Us</h2>
+                    <address class="md-margin-bottom-40">
+                        NGO Management <br>
+                        Bhandarkars' Arts & Science College, <br>
+                        Kundapura, IND - 576201 <br>
+                        Phone: +91 9902344835 <br>
+                        Email: <a href="mailto:info@ngomanagement.com" class="">info@ngomanagement.com</a><br>
+                        Web: <a href="smart-eye.html" class="">www.bluedart.in</a>
+                    </address>
+
+                </div>
+            </div>
+
+
+            <div class="nav-box row clearfix">
+                <div class="inner col-md-9 clearfix">
+                    <ul class="footer-nav clearfix">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a target="_" href="{{ url_for('admin_module.login') }}">Admin Login</a></li>
+
+
+                    </ul>
+
+
+                </div>
+                <div class="donate-link col-md-3"><a target="_" href="{{ url_for('donar_module.login') }}"
+                        class="btn btn-primary "><span class="btn-title">Donate Now</span></a></div>
+            </div>
+
+        </div>
+    </footer>
+
+    <div class="copy">
+        <div class="container">
+            <a href="{{ url_for('home') }}">2021 &copy; All Rights Reserved | NGO Management</a>
+
+            <span>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </span>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="{{ url_for('static',filename='home/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='home/js/popper.min.js') }}"></script>
+<script src="{{ url_for('static',filename='home/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static',filename='home/plugins/scroll-fixed/jquery-scrolltofixed-min.js') }}"></script>
+<script src="{{ url_for('static',filename='home/plugins/slider/js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static',filename='home/js/script.js') }}"></script>
+
+</html>

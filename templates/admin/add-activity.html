@@ -1,0 +1,41 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+        {% if msg: %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ msg }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <div class="card">
+            <div class="card-header card-header-primary center">
+                <h4 class="card-title "><b>Add New Activity/Event</b></h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" accept="{{ url_for('admin_module.activity') }}">
+                    <div class="form-group">
+                        <label for="name">Activity Name</label>
+                        <input name="name" type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" type="text" rows="5" class="form-control" id="description"
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input name="date" type="datetime-local" class="form-control" id="date" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Activity</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // CKEDITOR.replace('description');
+</script>
+{% endblock %}

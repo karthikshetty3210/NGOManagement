@@ -1,0 +1,26 @@
+{% extends "admin/layout.html" %}
+{% block maincontent %}
+<div class="content">
+    <div class="container">
+        <div class="card card-profile">
+            <div class="card-avatar">
+                <a href="javascript:;">
+                    <img class="img"
+                        src="https://www.vhv.rs/dpng/d/256-2569650_men-profile-icon-png-image-free-download-searchpng.png" />
+                </a>
+            </div>
+            <div class="card-body">
+                <h6 class="card-category text-gray">{{ profileData['phoneno'] }}</h6>
+                <h4 class="card-title">{{ profileData['name'] }}</h4>
+                <p class="card-description">{{ profileData['email'] }}</p>
+                <a href="{{ url_for('admin_module.logout') }}" class="btn btn-primary btn-round">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+{% endblock %}
